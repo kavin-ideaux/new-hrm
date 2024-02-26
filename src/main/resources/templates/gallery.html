@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/New Logo copy 1.svg" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/boostrap.css"> -->
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+
+    <link rel="stylesheet" href="./css/img-lightbox.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript">
+        document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                var example_1 = new purePajinate({
+                    containerSelector: '.example_1 .items',
+                    itemSelector: '.example_1 .items > div',
+                    navigationSelector: '.example_1 .page_navigation',
+                    itemsPerPage: 12
+                });
+
+                var example_2 = new purePajinate({
+                    containerSelector: '.example_2 .items',
+                    itemSelector: '.example_2 .items > div',
+                    navigationSelector: '.example_2 .page_navigation',
+                    wrapAround: true,
+                    showFirstLast: true,
+                    itemsPerPage: 12
+                });
+
+                var example_3 = new purePajinate({
+                    containerSelector: '.example_3 .items',
+                    itemSelector: '.example_3 .items > div',
+                    navigationSelector: '.example_3 .page_navigation',
+                    wrapAround: true,
+                    pageLinksToDisplay: 3,
+                    itemsPerPage: 1,
+                    startPage: 12
+                });
+            }
+        };
+    </script>
+
+
+    <title>Gallery | KKR Academy</title>
+</head>
+
+
+
+<body>
+
+    <!-- ==================================================== Navbar ======================================================  -->
+
+    <header class="header" id="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="img/Logo.svg" alt="">
+                <p class="KKR">KKR ACADEMY</p>
+            </div>
+            <nav style="overflow-x: hidden">
+                <div class="link nav__menu">
+                    <ul>
+                        <li class="nav_list">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="/">About&nbsp;Us</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="/">Coaching</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="/">Events</a>
+                        </li>
+                        <li class="nav_list ">
+                            <a href="/show" class="active-link">Gallery</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="/">Connect</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="hamburger">
+
+                <img src="img/Group 3.svg" alt="" srcset="">
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================== Header Image =================================================== -->
+
+    <div class="container-fluid" style="padding: 0px;">
+        <div class="swiper myCarousel">
+            <div class="swiper-wrapper carousel-swiper">
+
+
+                <div class="swiper-slide carousel-slide">
+                    <div class="carousel__card-holder">
+                        <div class="shadow1"></div>
+                        <img style="width: 100%;" src="./img/caro-7.svg" alt="carousel" class="img__contain">
+
+                        <div class="carousel__img-holder1">
+                            <div class="carousel_content ">
+                                <div class="words03">
+                                    <p class="Gallery-tittle">Our Gallery !!</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="swiper-button-next caro-next"></div>
+            <div class="swiper-button-prev caro-prev"></div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================= contents ======================================================= -->
+
+    <div class=" container contents">
+        <p class="cont-head">
+            WE ARE....
+        </p>
+        <p class="cont-para">
+            I have won many medals in state, national and international tournaments.Im the founder and director of KKR
+            ACADEMY which is approved by government. I have nearly taught more than 500 students.In the academy we are
+            teaching silambam, karate, Bharathanatiyam, western dance, keyboard, drums and drawing with highly skilled
+            teacher. And we are having few branches for KKR ACADEMY
+        </p>
+
+
+        <!-- ============================================================= Our Gallery ======================================================= -->
+
+        <div class="gallery-out">
+
+            <div class="gallery-in">
+                <center>
+                    <P class="gallery-cont1">
+                        Our Gallery
+                    </P>
+                    <P class="gallery-cont2">
+                        we are having few branches for KKR ACADEMY
+                    </P>
+                </center>
+
+                <div class="container">
+                    <div class="example_1">
+                        <div class="items row row-cols-1 row-cols-md-3 g-4">
+                            <div class="item item1 col" th:each="image : ${images}">
+                                <div class="card1 explode">
+                                    <a th:href="@{'/images/' + ${image.id}}" class="img-lightbox-link" aria-hidden="true"
+                                        rel="lightbox">
+                                        <img th:src="@{'/images/' + ${image.id}}"src="img/11.jpg" alt="Image Lightbox" />
+                                        <div class="overlay">
+                                            <span>"</span>
+                                            <span>View</span>
+                                            <span></span>
+                                          </div> 
+                                    </a>                                
+                                </div>
+                            </div>
+
+<!--                             <div class="item item1 col"> -->
+<!--                                 <div class="card1 explode"> -->
+<!--                                     <a href="img/Gallery/g1.png" class="img-lightbox-link" aria-hidden="true" -->
+<!--                                         rel="lightbox"> -->
+<!--                                         <img src="img/Gallery/g1.png" alt="Image Lightbox" /> -->
+<!--                                         <div class="overlay"> -->
+<!--                                             <span>"</span> -->
+<!--                                             <span>View</span> -->
+<!--                                             <span></span> -->
+<!--                                           </div>  -->
+<!--                                     </a>                                 -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="item item1 col"> -->
+<!--                                 <div class="card1 explode"> -->
+<!--                                     <a href="img/Gallery/g1.png" class="img-lightbox-link" aria-hidden="true" -->
+<!--                                         rel="lightbox"> -->
+<!--                                         <img src="img/Gallery/g1.png" alt="Image Lightbox" /> -->
+<!--                                         <div class="overlay"> -->
+<!--                                             <span>"</span> -->
+<!--                                             <span>View</span> -->
+<!--                                             <span></span> -->
+<!--                                           </div>  -->
+<!--                                     </a>                                 -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="item item1 col"> -->
+<!--                                 <div class="card1 explode"> -->
+<!--                                     <a href="img/Gallery/g1.png" class="img-lightbox-link" aria-hidden="true" -->
+<!--                                         rel="lightbox"> -->
+<!--                                         <img src="img/Gallery/g1.png" alt="Image Lightbox" /> -->
+<!--                                         <div class="overlay"> -->
+<!--                                             <span>"</span> -->
+<!--                                             <span>View</span> -->
+<!--                                             <span></span> -->
+<!--                                           </div>  -->
+<!--                                     </a>                                 -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="item item1 col"> -->
+<!--                                 <div class="card1 explode"> -->
+<!--                                     <a href="img/Gallery/g1.png" class="img-lightbox-link" aria-hidden="true" -->
+<!--                                         rel="lightbox"> -->
+<!--                                         <img src="img/Gallery/g1.png" alt="Image Lightbox" /> -->
+<!--                                         <div class="overlay"> -->
+<!--                                             <span>"</span> -->
+<!--                                             <span>View</span> -->
+<!--                                             <span></span> -->
+<!--                                           </div>  -->
+<!--                                     </a>                                 -->
+<!--                                 </div> -->
+<!--                             </div> -->
+
+
+                        </div>
+                        <div class="page_navigation"></div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- ====================================================== footer ======================================================= -->
+
+
+    <footer class="footer">
+        <div class="row  footer-list" style="padding:30px 40px 60px 40px ;">
+
+            <div class="col-md-4">
+                <div class="footer-section footer-img">
+                    <img src="img/New Logo copy 1.svg" alt="" style="width: 135px;" srcset="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="footer-section">
+                    <ul class="list1">
+                        <li>
+                            <h2 class="footer__head">Quick Links</h2>
+                        </li>
+
+                        <li class="lists"><a href="/">Home</a></li>
+                        <li class="lists"><a href="/">About Us</a></li>
+                        <li class="lists"><a href="/">Events</a></li>
+                        <li class="lists"><a href="/">Courses</a></li>
+                        <li class="lists"><a href="/show">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="footer-section " id="contact">
+                    <ul class="list1">
+                        <li>
+                            <h2 class="footer__head">Connect&nbsp;With&nbsp;Us</h2>
+                        </li>
+                    </ul>
+                    <ul class="logos">
+                        <a href="https://www.facebook.com/profile.php?id=61550245363787&mibextid=ZbWKwL"
+                            target="_blank">
+                            <li style="background-color:white;">
+                                <i class="fa-brands fa-facebook" style="color: #2B2C7C;"></i>
+                            </li>
+                        </a>
+
+                        <a href="https://instagram.com/kkr.academy?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"
+                            target="_blank">
+                            <li style="background-color:white;">
+
+                                <i class="fa-brands fa-instagram" style="color: #2B2C7C;"></i>
+                            </li>
+                        </a>
+
+                        <a href="https://youtube.com/@kkracademy591?si=MqXTYIisAHeATwtk" target="_blank">
+                            <li style="background-color:white;">
+                                <i class="fa-brands fa-youtube" style="color: #2B2C7C;">
+                                </i>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="qr-code">
+                    <img class="qr-image" src="img/QR.jpg" alt="">
+                    <p class="visit">visit us</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <section class="sub-footer">
+
+        <p class="copy-right"> &copy;Acadamey, 2023. All Rights Reserved.|| Website
+            Design and
+            Develop by : <a href="https://www.ideaux.in/" target="_blank">Ideauxtechnologies</a></p>
+
+    </section>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        hamburger = document.querySelector(".hamburger");
+        nav = document.querySelector("nav");
+        hamburger.onclick = function () {
+            nav.classList.toggle("active");
+        }
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Function to display the image in the popup
+            function displayImagePopup(imgSrc) {
+                $('#popup-img').attr('src', imgSrc);
+                $('#image-popup').fadeIn();
+            }
+
+            // Close the popup when clicking outside the image
+            $('#image-popup').click(function () {
+                $(this).fadeOut();
+            });
+
+            // Handle click event for images
+            $('.card1 img').click(function () {
+                var imgSrc = $(this).attr('src');
+                displayImagePopup(imgSrc);
+            });
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/carousel.js"></script>
+
+    <script src="js/purePajinate.es5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+            <!-- <script src="./js/touch-keyboard-navigation.js"></script> -->
+    <script src="./js/img-lightbox.js"></script>
+    <script>
+        (function (root) {
+            "use strict";
+            if (root.imgLightbox) {
+                imgLightbox("img-lightbox-link", {
+                    onCreated: function () {
+                        /* show your preloader */
+                    },
+                    onLoaded: function () {
+                        /* hide your preloader */
+                    },
+                    onError: function () {
+                        /* hide your preloader */
+                    },
+                    onClosed: function () {
+                        /* hide your preloader */
+                    },
+                    rate: 500 /* default: 500 */,
+                    touch: false /* default: false - use with care for responsive images in links on vertical mobile screens */
+                });
+            }
+        })("undefined" !== typeof window ? window : this);
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+        }
+
+        .login-form {
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-form button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .change-password-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .change-password-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form th:action="@{/login1}" method="post" class="login-form">
+            <label>Username: <input type="text" name="username" /></label><br/>
+            <label>Password: <input type="password" name="password" /></label><br/>
+            <button type="submit">Login</button>
+        </form>
+        <p th:text="${error}" style="color: red;"></p>
+
+        <!-- Add a "Change Password" button that redirects to the change password page -->
+        <div class="change-password-container">
+            <form th:action="@{/changepassword}" method="get">
+                <button type="submit" class="change-password-button">Change Password</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

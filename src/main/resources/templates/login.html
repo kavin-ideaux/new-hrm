@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/css/login.css}" rel="stylesheet" />
+<title>Login Page</title>
+</head>
+<body>
+	<section class="login">
+		<div class="container">
+			<h1>Login Form</h1>
+			<div class="lgn">
+			</div>
+			<input type="text" id="username" placeholder="User Name"> <input
+				type="email" id="password" placeholder="Pasword">
+			<div class="forget">
+				<a href="#" id="fgpass">Forgot Password</a>
+			</div>
+			<a id="loginBtn" class="hover_btn" onclick="submitLoginForm()">Login</a>
+			<div class="sgnUp"></div>
+		</div>
+	</section>
+	<script>
+    function submitLoginForm() {
+        var formData = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        };
+        
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.login_status === "Success") {
+                window.location.href = "/gallery/event";
+            } else {
+                alert("Login failed: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Login error:", error);
+        });
+    }
+</script>
+</body>
+</html>

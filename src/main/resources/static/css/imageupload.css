@@ -1,0 +1,20 @@
+.upload-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#image-upload {
+    display: none; /* Hide the default file input */
+}
+
+.upload-label {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#image-upload:hover + .upload-label {
+    background-color: #2980b9;
+}
